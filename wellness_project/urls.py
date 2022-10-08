@@ -1,4 +1,4 @@
-"""wellness_site URL Configuration
+"""wellness_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,9 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, re_path
+from wellness_app import views
 
 urlpatterns = [
+    # Admin Pages
     path('admin/', admin.site.urls),
-    path('wellness/', include('wellness_app.urls')),
+
+    # API
+    re_path(r'^api/wellness/$', views.users_list),
+    re_path(r'^api/wellness/(?P<pk>[0-9]+)$', views.users_detail),
+
+    # FE Pages
+    # path('', views.index, name='index'),
+    # path('wellness/', include('wellness_app.urls')),
 ]
