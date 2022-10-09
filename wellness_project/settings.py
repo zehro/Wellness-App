@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o-v-7x-@)88*qxuqdg+hi&x7-yx93=7!%)eoo3s$fy=dd)kdte
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://zehro.pythonanywhere.com']
 
 
 # Application definition
