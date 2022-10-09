@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Wellness-App/static/css/main.12a6702c.css",
+    "main.js": "/Wellness-App/static/js/main.973e8ae6.js",
+    "static/js/787.75217fe2.chunk.js": "/Wellness-App/static/js/787.75217fe2.chunk.js",
+    "index.html": "/Wellness-App/index.html",
+    "main.12a6702c.css.map": "/Wellness-App/static/css/main.12a6702c.css.map",
+    "main.973e8ae6.js.map": "/Wellness-App/static/js/main.973e8ae6.js.map",
+    "787.75217fe2.chunk.js.map": "/Wellness-App/static/js/787.75217fe2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12a6702c.css",
+    "static/js/main.973e8ae6.js"
+  ]
+}
