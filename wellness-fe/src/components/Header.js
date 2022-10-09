@@ -1,22 +1,14 @@
 import React, { Component } from "react";
 
+import logo from '../images/logo.svg';
+
 class Header extends Component {
     render() {
         return (
-            <div className="text-center">
-                {/* <img
-                    src="https://logrocket-assets.io/img/logo.png"
-                    alt="Logo"
-                    width="300"
-                    className="img-thumbnail"
-                    style={{ marginTop: "20px" }}
-                /> */}
-                Logo
-                <hr />
-                <h5>
-                    <i>presents</i>
-                </h5>
-                <h1>App with React + Django</h1>
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                </header>
             </div>
         );
     }

@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework import viewsets
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 
+from .serializers import UserSerializer
 from .models import User
-from .serializers import *
 
 
 @api_view(['GET', 'POST'])
@@ -26,7 +26,6 @@ def users_list(request):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['PUT', 'DELETE'])
 def users_detail(request, pk):
     try:
@@ -44,7 +43,3 @@ def users_detail(request, pk):
     elif request.method == 'DELETE':
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the index.")
