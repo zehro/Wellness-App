@@ -1,1 +1,1 @@
-export const API_URL = "zehro.pythonanywhere.com/api/wellness/";
+export const API_URL = "http://zehro.pythonanywhere.com/api/wellness/";
