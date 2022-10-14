@@ -1,0 +1,110 @@
+/*
+ * **************************************
+ * ************   Imports    ************
+ * **************************************
+ */
+@use '../../App';
+
+/*
+ * **************************************
+ * *********   General Styles   *********
+ * **************************************
+ */
+.cover {
+    display: flex;
+    background: App.$cover-background;
+}
+
+.cover-section {
+    flex: 1 1 50%;
+    display: flex;
+
+    &.title {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &.options {
+        align-items: flex-end;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.cover-title {
+    color: gold;
+    font-size: 8rem;
+}
+
+.cover-option {
+    display: flex;
+    width: 70%;
+    margin: 20px 0;
+    transition: width 0.4s;
+
+    &:hover {
+        width: 80%;
+    }
+
+    $cover-option-background: App.$cover-background-alt;
+    $cover-option-font-color: white;
+
+    .cover-option-triangle {
+        width: 0;
+        height: 0;
+        border-top: 3rem solid transparent;
+        border-bottom: 3rem solid transparent;
+        border-right: 3rem solid $cover-option-background;
+    }
+
+    .cover-option-text {
+        flex: 1 1 100%;
+        padding: 0.5rem 2rem;
+        border: none;
+        background: $cover-option-background;
+        color: $cover-option-font-color;
+        font-size: 3rem;
+        outline: none;
+        text-align: left;
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+}
+
+/*
+ * **************************************
+ * ********   Animation Styles   ********
+ * **************************************
+ */
+.book {
+    &.animate-open {
+        .cover {
+            @include App.animation-flip-open();
+        }
+
+        .anim-page {
+            background: App.$page-color;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+
+            &.num-0 {
+                @include App.animation-flip-open($duration: 1.7s);
+            }
+            &.num-1 {
+                @include App.animation-flip-open($duration: 1.9s);
+            }
+            &.num-2 {
+                @include App.animation-flip-open($duration: 2.1s);
+            }
+            &.num-3 {
+                @include App.animation-flip-open($duration: 2.3s);
+            }
+            &.num-4 {
+                @include App.animation-flip-open($duration: 2.5s);
+            }
+            &.num-5 {
+                @include App.animation-flip-open($duration: 2.7s);
+            }
+        }
+    }
+}

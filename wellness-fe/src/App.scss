@@ -1,0 +1,158 @@
+/*
+ * **************************************
+ * ********   Shared Variables   ********
+ * **************************************
+ */
+$cover-background: brown;
+$cover-background-alt: darkred;
+$page-color: #fbf1d6;
+
+/*
+ * **************************************
+ * *********   General Styles   *********
+ * **************************************
+ */
+
+// Main Content
+main {
+    width: 100%;
+    position: relative;
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+}
+
+.book {
+    display: flex;
+    height: 100vh;
+    background: $page-color;
+}
+
+/*
+ * **************************************
+ * *****   Animation Definitions    *****
+ * **************************************
+ */
+@mixin animation-fade-in($duration: 0.5s) {
+    animation-name: fade-in;
+    animation-duration: $duration;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@mixin animation-fade-out($duration: 0.5s) {
+    animation-name: fade-out;
+    animation-duration: $duration;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@mixin animation-flip-open($duration: 1.5s) {
+    animation-name: page-flip-open;
+    animation-duration: $duration;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    transform-origin: left center;
+}
+
+@mixin animation-flip-close($duration: 1.5s) {
+    animation-name: page-flip-close;
+    animation-duration: $duration;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    transform-origin: left center;
+}
+
+@mixin animation-text-glow($duration: 0.8s) {
+    animation-name: text-glow-in;
+    animation-duration: $duration;
+    animation-timing-function: ease-in-out;
+}
+
+/*
+ * **************************************
+ * ******   Animation Keyframes    ******
+ * **************************************
+ */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes page-flip-open {
+    0% {
+        transform: rotateY(0deg);
+    }
+    90% {
+        transform: rotateY(-180deg) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(-180deg);
+        box-shadow: none;
+        background: $cover-background;
+        opacity: 0;
+    }
+}
+
+@keyframes page-flip-close {
+    0% {
+        transform: rotateY(-180deg);
+        box-shadow: none;
+        background: $cover-background;
+        opacity: 0;
+    }
+    10% {
+        transform: rotateY(-180deg) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes text-glow-in {
+    0% {
+        color: transparent;
+        text-shadow: none;
+    }
+    30% {
+        color: white;
+        text-shadow: 0px -2px 4px #fff, 0px -2px 10px #FF3, 0px -10px 20px #F90, 0px -20px 40px #C33;
+    }
+    100% {
+        color: black;
+        text-shadow: none;
+    }
+}
+
+/*
+ * **************************************
+ * *******   Animation Classes    *******
+ * **************************************
+ */
+.animate-fade-in {
+    @include animation-fade-in();
+}
+
+.animate-fade-out {
+    @include animation-fade-out();
+}
+
+.animate-text-glow {
+    @include animation-text-glow();
+}

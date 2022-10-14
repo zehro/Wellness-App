@@ -1,0 +1,98 @@
+/*
+ * **************************************
+ * ************   Imports    ************
+ * **************************************
+ */
+@use '../../App';
+
+/*
+ * **************************************
+ * *********   General Styles   *********
+ * **************************************
+ */
+$navbar-width: 100px;
+$navbar-border-width: 10px;
+$navbar-btn-bg: App.$cover-background-alt;
+$navbar-btn-bg-hover: #521515;
+
+// Navbar
+.navbar-spine {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: $navbar-width + $navbar-border-width;
+    background: App.$cover-background;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    border-right-width: $navbar-border-width;
+    border-style: solid;
+    border-color: App.$cover-background-alt;
+    transition: border-color 1s;
+
+    &.visible {
+        .navbar-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .opened & {
+        border-color: gold;
+    }
+}
+
+$navbar-text-width: 200px;
+
+.navbar-btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    margin: 2px 0;
+    height: $navbar-width;
+    width: $navbar-width;
+    opacity: 0;
+    visibility: hidden;
+    transition: background-color 0.2s;
+
+    &:hover {
+        svg {
+            background: $navbar-btn-bg-hover;
+        }
+        
+        .navbar-btn-text {
+            background: $navbar-btn-bg-hover;
+            right: -$navbar-text-width;
+        }
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    svg {
+        height: $navbar-width;
+        width: $navbar-width;
+        z-index: 10;
+        position: absolute;
+        background: $navbar-btn-bg;
+        transition: background-color 0.2s;
+    }
+
+    .navbar-btn-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: $navbar-width;
+        width: $navbar-text-width;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $navbar-btn-bg;
+        color: white;
+        font-size: 1.5rem;
+        transition: right 0.2s;
+    }
+}

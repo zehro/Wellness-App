@@ -1,0 +1,67 @@
+/*
+ * **************************************
+ * ************   Imports    ************
+ * **************************************
+ */
+@use '../App';
+
+/*
+ * **************************************
+ * ********   Animation Styles   ********
+ * **************************************
+ */
+ .anim-page, .cover {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: left center;
+}
+
+.book {
+    &.opened {
+        .anim-page, .cover {
+            transform: rotateY(-180deg);
+            box-shadow: none;
+            background: App.$cover-background;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &.animate-close {
+        .cover {
+            @include App.animation-flip-close($duration: 2.9s);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .anim-page {
+            background: App.$page-color;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            visibility: visible;
+            opacity: 1;
+
+            &.num-0 {
+                @include App.animation-flip-close($duration: 1.7s);
+            }
+            &.num-1 {
+                @include App.animation-flip-close($duration: 1.9s);
+            }
+            &.num-2 {
+                @include App.animation-flip-close($duration: 2.1s);
+            }
+            &.num-3 {
+                @include App.animation-flip-close($duration: 2.3s);
+            }
+            &.num-4 {
+                @include App.animation-flip-close($duration: 2.5s);
+            }
+            &.num-5 {
+                @include App.animation-flip-close($duration: 2.7s);
+            }
+        }
+    }
+}

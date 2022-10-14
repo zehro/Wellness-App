@@ -10,11 +10,36 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
-# class Question(models.Model):
-#     question_text = models.CharField(max_length=200)
-#     pub_date = models.DateTimeField('date published')
+class WellnessType(models.Model):
+    name = models.CharField(max_length=128)
 
-# class Choice(models.Model):
-#     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-#     choice_text = models.CharField(max_length=200)
-#     votes = models.IntegerField(default=0)
+    def __str__(self):
+        return self.name
+
+class Task(models.Model):
+    wellnessType = models.ForeignKey(WellnessType, on_delete=models.CASCADE)
+    repeatType = (
+        ('D', 'Daily'),
+        ('W', 'Weekly'),
+        ('M', 'Monthly'),
+        ('O', 'One-Time'),
+    )
+    startDate = models.DateField()
+    endDate = models.DateField()
+    isCompleted = models.BooleanField(default=False)
+    isExpired = models.BooleanField(default=False)
+
+class Emotion(models.Model):
+    name = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.name
+
+class Journal(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+class Page(models.Model):
+    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
+    date = models.DateField()
+    emotions = models.ForeignKey(Emotion, on_delete=models.CASCADE)
+    tasks = models.ManyToManyField(Task)
