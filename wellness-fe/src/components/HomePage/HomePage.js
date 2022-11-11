@@ -15,10 +15,6 @@ import './HomePage.scss';
  * Component to return.
  */
 class HomePage extends Component {
-    // Base constructor
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         $('.cover-section').addClass('animate-fade-in').one("animationend",

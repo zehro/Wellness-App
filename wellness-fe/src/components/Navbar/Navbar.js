@@ -15,17 +15,9 @@ import { ReactComponent as IconHabit } from '../../images/logo.svg';
  * Component to return.
  */
 class Navbar extends Component {
-    // Base constructor
-    constructor(props) {
-        super(props);
-    
-        // Event bindings
-        this.handleReturnHome = this.handleReturnHome.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-    }
 
     // Event handler for the home button
-    handleReturnHome(e) {
+    returnHome = e => {
         // Stop propagation of anchor
         e.preventDefault();
 
@@ -58,7 +50,7 @@ class Navbar extends Component {
     }
 
     // Event handler for the navbar items
-    handleClick(e, hash) {
+    navigateTo = (e, hash) => {
         // Stop propagation of anchor
         e.preventDefault();
 
@@ -70,20 +62,20 @@ class Navbar extends Component {
         return (
             // Sean's HW: optimize code into an iterator
             <nav className="navbar-spine">
-                <Link className="navbar-btn" to="" onClick={(e) => this.handleReturnHome(e)}>
+                <Link className="navbar-btn" to="" onClick={(e) => this.returnHome(e)}>
                     <IconHome />
                     <div className="navbar-btn-text">Home</div>
                 </Link>
-                <Link className="navbar-btn" to="/journal" onClick={(e) => this.handleClick(e, "journal")}>
+                <Link className="navbar-btn" to="/journal" onClick={(e) => this.navigateTo(e, "journal")}>
                     <IconJournal />
                     <div className="navbar-btn-text">Journal</div>
                 </Link>
-                <Link className="navbar-btn" to="/habits" onClick={(e) => this.handleClick(e, "habits")}>
+                <Link className="navbar-btn" to="/habits" onClick={(e) => this.navigateTo(e, "habits")}>
                     <IconHabit />
                     <div className="navbar-btn-text">Habits</div>
                 </Link>
-                {/* <Link className="navbar-btn" to="/calendar" onClick={(e) => this.handleClick(e, "calendar")}></Link> */}
-                {/* <Link className="navbar-btn" to="/stats" onClick={(e) => this.handleClick(e, "stats")}></Link> */}
+                {/* <Link className="navbar-btn" to="/calendar" onClick={(e) => this.navigateTo(e, "calendar")}></Link> */}
+                {/* <Link className="navbar-btn" to="/stats" onClick={(e) => this.navigateTo(e, "stats")}></Link> */}
             </nav>
         );
     }

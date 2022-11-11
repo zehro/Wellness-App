@@ -14,10 +14,6 @@ import '../PageAnimFragment.scss';
  * Component to return.
  */
 class ExploreHomePage extends Component {
-    // Base constructor
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         // Play animation via class toggle

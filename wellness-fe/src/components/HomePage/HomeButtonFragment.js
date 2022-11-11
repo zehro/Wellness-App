@@ -10,8 +10,6 @@ import $ from 'jquery';
  * identifier.
  */
 function HomeButtonTab(props) {
-
-
     return (
         <div className="cover-option">
             <div className="cover-option-triangle" />
@@ -44,7 +42,7 @@ class HomeButtonFragment extends Component {
     }
     
     // Event handler for the click event
-    handleClick(e, hash) {
+    handleClick = (e, hash) => {
         // Stop propagation of anchor
         e.preventDefault();
 

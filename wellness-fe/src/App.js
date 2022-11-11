@@ -13,43 +13,11 @@ import ChatHomePage from "./components/ChatPage/ChatHomePage";
  * Component to return.
  */
 class App extends Component {
-    // Base constructor
-    constructor(props) {
-        super(props);
-
-        // Event bindings
-        this.setIsOpened = this.setIsOpened.bind(this);
-        this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.handleLogoutClick = this.handleLogoutClick.bind(this);
-
-        // State variables
-        this.state = {
-            isOpened      : false,
-            isLoggedIn    : false,
-        };
-    }
-
-    // Event handler for setting the book state
-    setIsOpened( val ) {
-        this.setState({isOpened: val});
-    }
-
-    // Event handler for login
-    handleLoginClick() {
-        this.setState({isLoggedIn: true});
-    }
-
-    // Event handler for logout
-    handleLogoutClick() {
-        this.setState({isLoggedIn: false});
-    }
 
     render() {
-        const bookClasses = `book ${this.state.isOpened ? 'opened' : 'closed'}`
-
         return (
-            <HashRouter>
-                <div className={bookClasses}>
+            <HashRouter basename="/">
+                <div className="book closed">
                     <Navbar />
 
                     <main>
